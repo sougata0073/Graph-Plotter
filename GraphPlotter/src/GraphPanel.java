@@ -41,7 +41,7 @@ public class GraphPanel extends JPanel {
     private void drawDividingDotsX(Graphics g, GraphDataModel dataModel) {
         int dotDiameter = dataModel.getDotDiameter();
         int halfDot = dotDiameter / 2;
-        int perDiv = dataModel.getxLength() / dataModel.getxScaleDensity();
+        float perDiv = (float) dataModel.getxLength() / dataModel.getxScaleDensity();
         float dotVal = dataModel.getxMaxCords() / dataModel.getxScaleDensity();
 
         String dotValString;
@@ -53,7 +53,7 @@ public class GraphPanel extends JPanel {
         g.setColor(Color.RED);
 
         for (int i = 0; i <= dataModel.getxScaleDensity(); i++) {
-            xDot = dataModel.getxAxisStartX() + (perDiv * i) - halfDot;
+            xDot = (int) (dataModel.getxAxisStartX() + (perDiv * i) - halfDot);
             g.fillOval(xDot, yDot, dotDiameter, dotDiameter);
 
             if (i % 2 == 0) dotValSpacing = 20;
@@ -67,7 +67,7 @@ public class GraphPanel extends JPanel {
     private void drawDividingDotsY(Graphics g, GraphDataModel dataModel) {
         int dotDiameter = dataModel.getDotDiameter();
         int halfDot = dotDiameter / 2;
-        int perDiv = dataModel.getyLength() / dataModel.getyScaleDensity();
+        float perDiv = (float) dataModel.getyLength() / dataModel.getyScaleDensity();
         float dotVal = dataModel.getyMaxCords() / dataModel.getyScaleDensity();
 
         String dotValString;
@@ -76,8 +76,8 @@ public class GraphPanel extends JPanel {
 
         g.setColor(Color.RED);
 
-        for (int i = 0; i <= dataModel.getyScaleDensity(); i++) {
-            yDot = dataModel.getyAxisStartY() - (perDiv * i) - halfDot;
+        for (int i = 1; i <= dataModel.getyScaleDensity(); i++) {
+            yDot = (int) (dataModel.getyAxisStartY() - (perDiv * i) - halfDot);
             g.fillOval(xDot, yDot, dotDiameter, dotDiameter);
 
             dotValString = String.format("%.2f", dotVal * i);
@@ -112,11 +112,13 @@ public class GraphPanel extends JPanel {
             cordsLocationY[i] = yDot;
 
             g.fillOval(xDot, yDot, dotDiameter, dotDiameter);
+            g.drawString(xCords[i] + ", " + yCords[i], cordsLocationX[i] - 10, cordsLocationY[i] - 20);
         }
 
         g.setColor(Color.BLACK);
 
         for (int i = 0; i < arrLength - 1; i++) {
+
             g.drawLine(cordsLocationX[i] + halfDot,
                     cordsLocationY[i] + halfDot,
                     cordsLocationX[i + 1] + halfDot,
