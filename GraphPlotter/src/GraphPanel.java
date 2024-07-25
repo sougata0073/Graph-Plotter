@@ -11,6 +11,7 @@ public class GraphPanel extends JPanel {
     public GraphPanel(String name) {
         setName(name);
         this.inputDialogBox = new InputDialogBox(this);
+        setDoubleBuffered(true);
     }
 
     @Override
