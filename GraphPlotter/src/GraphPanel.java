@@ -23,6 +23,9 @@ public class GraphPanel extends JPanel {
             return;
         }
 
+        // Drawing grids lines
+        drawGridLines(g, this.dataModel);
+
         // Drawing X and Y axis lines
         g.setColor(Color.BLACK);
         g.drawLine(this.dataModel.getxAxisStartX(), this.dataModel.getxAxisStartY(), this.dataModel.getxAxisEndX(), this.dataModel.getxAxisEndY());
@@ -36,6 +39,26 @@ public class GraphPanel extends JPanel {
 
         // Plotting values
         plotValues(g, this.dataModel);
+    }
+
+    private void drawGridLines(Graphics g, GraphDataModel dataModel){
+        g.setColor(Color.LIGHT_GRAY);
+        int gridSpacingX = dataModel.getGridSpacingX();
+        int gridSpacingY = dataModel.getGridSpacingY();
+
+        // For X axis
+        int temp = dataModel.getxAxisStartY();
+        while(temp >= dataModel.getyAxisEndY()){
+            g.drawLine(dataModel.getxAxisStartX(), temp, dataModel.getxAxisEndX(), temp);
+            temp -= gridSpacingY;
+        }
+
+        // For Y axis
+        temp = dataModel.getyAxisStartX();
+        while(temp <= dataModel.getxAxisEndX()){
+            g.drawLine(temp, dataModel.getyAxisStartY(), temp, dataModel.getyAxisEndY());
+            temp += gridSpacingX;
+        }
     }
 
     private void drawDividingDotsX(Graphics g, GraphDataModel dataModel) {

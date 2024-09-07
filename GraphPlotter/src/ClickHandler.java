@@ -104,7 +104,7 @@ public class ClickHandler implements ActionListener {
         this.yAxisStartX = this.spacingX;
         this.yAxisStartY = this.yScreen - this.spacingY;
         this.yAxisEndX = this.spacingX;
-        this.yAxisEndY = this.spacingX;
+        this.yAxisEndY = this.spacingX - 30;
 
         // X and Y axis lines length calculation
         this.xLength = this.xAxisEndX - this.xAxisStartX;
@@ -135,6 +135,9 @@ public class ClickHandler implements ActionListener {
 
         this.dataModel.setxLength(this.xLength);
         this.dataModel.setyLength(this.yLength);
+
+        this.dataModel.setGridSpacingX(this.xLength / 100);
+        this.dataModel.setGridSpacingY(this.yLength / 100);
 
         this.dialog.dispose();
 

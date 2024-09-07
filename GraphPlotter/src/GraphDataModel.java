@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class GraphDataModel {
-    private final int spacingX = 80;
+    private final int spacingX = 110;
     private final int spacingY = 200;
     private final int dotDiameter = 8;
 
@@ -29,6 +29,9 @@ public class GraphDataModel {
 
     private int xLength;
     private int yLength;
+
+    private int gridSpacingX;
+    private int gridSpacingY;
 
     public GraphDataModel(){
 
@@ -190,11 +193,27 @@ public class GraphDataModel {
         this.yLength = yLength;
     }
 
+    public int getGridSpacingX() {
+        return gridSpacingX;
+    }
+
+    public void setGridSpacingX(int gridSpacingX) {
+        this.gridSpacingX = gridSpacingX;
+    }
+
+    public int getGridSpacingY() {
+        return gridSpacingY;
+    }
+
+    public void setGridSpacingY(int gridSpacingY) {
+        this.gridSpacingY = gridSpacingY;
+    }
+
     @Override
     public String toString() {
         return "GraphDataModel{" +
                 "spacingX=" + spacingX +
-                "spacingY=" + spacingY +
+                ", spacingY=" + spacingY +
                 ", dotDiameter=" + dotDiameter +
                 ", xCords=" + Arrays.toString(xCords) +
                 ", yCords=" + Arrays.toString(yCords) +
@@ -214,6 +233,8 @@ public class GraphDataModel {
                 ", yAxisEndY=" + yAxisEndY +
                 ", xLength=" + xLength +
                 ", yLength=" + yLength +
+                ", gridSpacingX=" + gridSpacingX +
+                ", gridSpacingY=" + gridSpacingY +
                 '}';
     }
 }
