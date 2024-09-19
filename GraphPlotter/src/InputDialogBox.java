@@ -14,8 +14,7 @@ public class InputDialogBox extends JDialog {
     private JTextField xCordsTf;
     private JTextField yCordsTf;
     private JTextField xScaleTf;
-    private JTextField yScaleTf
-            ;
+    private JTextField yScaleTf;
     private JLabel xCordsLabel;
     private JLabel yCordsLabel;
     private JLabel xScaleLabel;
@@ -31,8 +30,8 @@ public class InputDialogBox extends JDialog {
 
         this.panel = panel;
 
-        Font font1 = new Font("Roboto", Font.PLAIN, 20);
-        Font font2 = new Font("Roboto", Font.PLAIN, 30);
+        Font font1 = new Font("Calibri", Font.PLAIN, 18);
+        Font font2 = new Font("Calibri", Font.BOLD, 25);
 
         this.xCordsTf = new JTextField(30);
         this.xCordsTf.setFont(font1);
@@ -55,7 +54,7 @@ public class InputDialogBox extends JDialog {
         this.yScaleLabel.setFont(font2);
 
         this.enterButton = new JButton("Enter");
-        this.enterButton.setFont(font1);
+        this.enterButton.setFont(font2);
 
         this.clickHandler = new ClickHandler(this.panel, this);
 
@@ -87,8 +86,8 @@ public class InputDialogBox extends JDialog {
         add(enterButton, gbc);
 
         pack();
-        setLocation(500, 200);
         setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     public GraphDataModel getDataModel(){

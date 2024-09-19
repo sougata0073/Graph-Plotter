@@ -129,7 +129,7 @@ public class GraphPanel extends JPanel {
 
         for (int i = 0; i < arrLength; i++) {
             xDot = (int) (singleDivX * xCords[i] + spacingX - halfDot);
-            yDot = (int) (yLength - singleDivY * yCords[i] + spacingX - halfDot);
+            yDot = (int) (yLength - singleDivY * yCords[i] + spacingX - halfDot - 30);
 
             cordsLocationX[i] = xDot;
             cordsLocationY[i] = yDot;
